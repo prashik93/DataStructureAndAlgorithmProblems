@@ -16,7 +16,7 @@ public class Main {
     public void algorithmsProgramsChoice() {
         while (true) {
             System.out.println("\nEnter Which Programs do you want to Run? ");
-            System.out.print("3.Insertion Sort\n4.Bubble Sort");
+            System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection");
             System.out.print("\nEnter Your Choice : ");
             int userChoice = scnr.nextInt();
 
@@ -28,6 +28,11 @@ public class Main {
                 case Constants.BUBBLE_SORT:
                     int[] numbers = {64, 4, 128, 32, 16, 2, 8};
                     algorithmPrograms.bubbleSort(numbers);
+                    break;
+                case Constants.ANAGRAM_DETECTION:
+                    String str1 = "abcd";
+                    String str2 = "dcba";
+                    algorithmPrograms.anagramDetection(str1, str2);
                     break;
                 default:
                     System.out.println("\nPlease Give Valid Input...");
