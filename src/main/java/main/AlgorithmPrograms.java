@@ -21,7 +21,7 @@ public class AlgorithmPrograms {
                 System.out.print(", ");
             }
         }
-        System.out.println("]\n");
+        System.out.println("]");
     }
 
     public void bubbleSort(int[] num) {
@@ -41,7 +41,7 @@ public class AlgorithmPrograms {
                 System.out.print(", ");
             }
         }
-        System.out.print("]\n");
+        System.out.print("]");
     }
 
     public void anagramDetection(String str1, String str2) {
@@ -80,5 +80,20 @@ public class AlgorithmPrograms {
             return;
         }
         System.out.println("\nStrings are Not Anagram");
+    }
+
+    public void findPrimeNumbers(int num1, int num2) {
+        System.out.print("\nPrime numbers between 0 - 1000 are : ");
+        for(int i = num1; i <= num2; i++) {
+            int count = 0;
+            for(int j = 1; j <= i; j++) {
+                if(i % j == 0) {
+                    count++;
+                }
+            }
+            if (count == 2) {
+                System.out.print(i + " ");
+            }
+        }
     }
 }

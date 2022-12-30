@@ -16,7 +16,7 @@ public class Main {
     public void algorithmsProgramsChoice() {
         while (true) {
             System.out.println("\nEnter Which Programs do you want to Run? ");
-            System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection");
+            System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection\n7.Prime Numbers");
             System.out.print("\nEnter Your Choice : ");
             int userChoice = scnr.nextInt();
 
@@ -33,6 +33,11 @@ public class Main {
                     String str1 = "abcd";
                     String str2 = "dcba";
                     algorithmPrograms.anagramDetection(str1, str2);
+                    break;
+                case Constants.PRIME_NUMBERS:
+                    int from = 0;
+                    int to = 1000;
+                    algorithmPrograms.findPrimeNumbers(from, to);
                     break;
                 default:
                     System.out.println("\nPlease Give Valid Input...");
