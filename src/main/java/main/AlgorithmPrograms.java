@@ -1,6 +1,8 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class AlgorithmPrograms {
     public void insertionSort(String[] args) {
@@ -44,7 +46,7 @@ public class AlgorithmPrograms {
         System.out.print("]");
     }
 
-    public void anagramDetection(String str1, String str2) {
+    public boolean anagramDetection(String str1, String str2) {
         if(str1.length() == str2.length()) {
             char[] arr1 = str1.toLowerCase().toCharArray();
             char[] arr2 = str2.toLowerCase().toCharArray();
@@ -72,18 +74,14 @@ public class AlgorithmPrograms {
             }
 
             boolean equals = Arrays.equals(arr1, arr2);
-            if (equals) {
-                System.out.println("\nStrings are Anagram");
-                return;
-            }
-            System.out.println("\nStrings are Not Anagram");
-            return;
+            return equals;
         }
-        System.out.println("\nStrings are Not Anagram");
+        return false;
     }
 
-    public void findPrimeNumbers(int num1, int num2) {
+    public List<Integer> findPrimeNumbers(int num1, int num2) {
         System.out.print("\nPrime numbers between 0 - 1000 are : ");
+        ArrayList<Integer> primeNumberList = new ArrayList<>();
         for(int i = num1; i <= num2; i++) {
             int count = 0;
             for(int j = 1; j <= i; j++) {
@@ -92,8 +90,62 @@ public class AlgorithmPrograms {
                 }
             }
             if (count == 2) {
-                System.out.print(i + " ");
+                primeNumberList.add(i);
             }
         }
+        return primeNumberList;
     }
+
+    public void printAllPrimeNumbers(int num1, int num2) {
+        List<Integer> primeNumbers = findPrimeNumbers(num1, num2);
+        for (Integer integer : primeNumbers) {
+            System.out.print(integer + " ");
+        }
+    }
+
+    public void findPrimeNumbersThatAreAnagramAndPalindrome(int num1, int num2) {
+        ArrayList<Integer> primeAnagramList = new ArrayList<>();
+        ArrayList<Integer> primePalindromeList = new ArrayList<>();
+        List<Integer> primeNumbers = findPrimeNumbers(num1, num2);
+        for (Integer number : primeNumbers) {
+            int rev = 0;
+            int primeNumber = number;
+            int temp = primeNumber;
+            while (temp > 0) {
+                int rem = temp % 10;
+                rev = (rev * 10) + rem;
+                temp = temp / 10;
+            }
+            // To check Prime Palindrome Numbers
+            if (rev == primeNumber) {
+                primePalindromeList.add(rev);
+            }
+        }
+
+        for (int i = 0; i < primeNumbers.size(); i++) {
+            for (int j = i + 1; j < primeNumbers.size(); j++) {
+                String str1 = Integer.toString(primeNumbers.get(i));
+                String str2 = Integer.toString(primeNumbers.get(j));
+                boolean result = anagramDetection(str1, str2);
+                if (result) {
+                    primeAnagramList.add(Integer.valueOf(str1));
+                    primeAnagramList.add(Integer.valueOf(str2));
+                }
+            }
+        }
+
+        printAllPrimeNumbers(num1, num2);
+
+        System.out.print("\nPrime Palindrome : " );
+        for (Integer integer : primePalindromeList) {
+            System.out.print(integer + " ");
+        }
+
+        System.out.print("\nPrime Anagram : " );
+        for (Integer integer : primeAnagramList) {
+            System.out.print(integer + " ");
+        }
+
+    }
+
 }

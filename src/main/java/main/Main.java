@@ -1,7 +1,6 @@
 package main;
 
 import constants.Constants;
-
 import java.util.Scanner;
 
 public class Main {
@@ -14,9 +13,11 @@ public class Main {
     }
 
     public void algorithmsProgramsChoice() {
-        while (true) {
+        boolean flag = true;
+        while (flag) {
             System.out.println("\nEnter Which Programs do you want to Run? ");
-            System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection\n7.Prime Numbers");
+            System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection\n7.Prime Numbers" +
+                    "\n8.Prime Numbers That Are Anagram And Palindrome\n0.Exit");
             System.out.print("\nEnter Your Choice : ");
             int userChoice = scnr.nextInt();
 
@@ -37,7 +38,15 @@ public class Main {
                 case Constants.PRIME_NUMBERS:
                     int from = 0;
                     int to = 1000;
-                    algorithmPrograms.findPrimeNumbers(from, to);
+                    algorithmPrograms.printAllPrimeNumbers(from, to);
+                    break;
+                case Constants.PRIME_NUMBERS_THAT_ARE_ANAGRAM_AND_PALINDROME:
+                    int num1 = 0;
+                    int num2 = 1000;
+                    algorithmPrograms.findPrimeNumbersThatAreAnagramAndPalindrome(num1, num2);
+                    break;
+                case Constants.EXIT :
+                    flag = false;
                     break;
                 default:
                     System.out.println("\nPlease Give Valid Input...");
