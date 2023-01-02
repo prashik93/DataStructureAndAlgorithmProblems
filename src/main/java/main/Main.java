@@ -4,12 +4,34 @@ import constants.Constants;
 import java.util.Scanner;
 
 public class Main {
-    private final Scanner scnr = new Scanner(System.in);
+    private static final Scanner scnr = new Scanner(System.in);
     private final AlgorithmPrograms algorithmPrograms = new AlgorithmPrograms();
+    private final DataStructure dataStructure = new DataStructure();
+
     public static void main(String[] args) {
         System.out.println("Welcome to Data Structure And Algorithm Problems!");
         Main main = new Main();
-        main.algorithmsProgramsChoice();
+
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\nEnter Which Programs do you want to Run? ");
+            System.out.print("1.AlgorithmPrograms\n2.DataStructurePrograms\n0.Exit");
+            System.out.print("\nEnter Your Choice : ");
+            int usrInput = scnr.nextInt();
+            switch (usrInput) {
+                case Constants.ALGORITHM_PROGRAMS :
+                    main.algorithmsProgramsChoice();
+                    break;
+                case Constants.DATA_STRUCTURE_PROGRAMS :
+                    main.DataStructureProgramsChoice();
+                    break;
+                case Constants.EXIT :
+                    flag = false;
+                    break;
+                default :
+                    System.out.println("\nPlease give valid input ...");
+            }
+        }
     }
 
     public void algorithmsProgramsChoice() {
@@ -44,6 +66,27 @@ public class Main {
                     int num1 = 0;
                     int num2 = 1000;
                     algorithmPrograms.findPrimeNumbersThatAreAnagramAndPalindrome(num1, num2);
+                    break;
+                case Constants.EXIT :
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("\nPlease Give Valid Input...");
+            }
+        }
+    }
+
+    public void DataStructureProgramsChoice() {
+        boolean flag = true;
+        while (flag) {
+            System.out.println("\nEnter Which Programs do you want to Run? ");
+            System.out.print("5.Palindrome Checker\n0.Exit");
+            System.out.print("\nEnter Your Choice : ");
+            int userChoice = scnr.nextInt();
+
+            switch (userChoice) {
+                case Constants.PALINDROME_CHECKER:
+                    dataStructure.palindromeChecker();
                     break;
                 case Constants.EXIT :
                     flag = false;
