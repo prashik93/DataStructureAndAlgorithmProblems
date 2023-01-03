@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AlgorithmPrograms {
     private Scanner scnr = new Scanner(System.in);
@@ -163,6 +165,39 @@ public class AlgorithmPrograms {
             return findYourNumber(mid, high);
         } else {
             return mid;
+        }
+    }
+
+    public void customizingMessageUsingRegex() {
+        System.out.print("\nEnter First Name : ");
+        String firstName = scnr.next();
+        boolean firstNameMatches = Pattern.matches("^[A-Z]{1}[a-z]{2,}$", firstName);
+        System.out.print("Enter Last Name : ");
+        String lastName = scnr.next();
+        String fullName = firstName + " " + lastName;
+        boolean fullNameMatches = Pattern.matches("^[A-Z]{1}[a-z]{2,}[\\s][A-Z]{1}[a-z]{2,}$", fullName);
+        System.out.print("Enter Mobile Number : ");
+        String mobNumber = scnr.next();
+        String mobileNumber = "91" + "-" + mobNumber;
+        boolean mobileNumberMatches = Pattern.matches("^[0-9]{2}[-][0-9]{10}$", "91-8806187589");
+
+        System.out.print("Enter Day : ");
+        String day = scnr.next();
+
+        System.out.print("Enter Month : ");
+        String month = scnr.next();
+
+        System.out.print("Enter Year : ");
+        String year = scnr.next();
+
+        String date = day + "/" + month + "/" + year;
+
+        boolean dateMatches = Pattern.matches("(((0[1-9])|([12][0-9])|(3[01]))\\/((0[0-9])|(1[012]))\\/((20[012]\\d|19\\d\\d)|(1\\d|2[0123])))", date);
+
+        if(firstNameMatches && fullNameMatches && mobileNumberMatches && dateMatches) {
+            System.out.println("Hello " + firstName + ", " + "We have your full name as " +
+                    fullName + " in our system. your contact number is " + mobileNumber + ". " +
+                    "Please, let us know in case of any clarification Thank you BridgeLabz " + date + ".");
         }
     }
 }

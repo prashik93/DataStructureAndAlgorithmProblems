@@ -39,7 +39,8 @@ public class Main {
         while (flag) {
             System.out.println("\nEnter Which Programs do you want to Run? ");
             System.out.print("3.Insertion Sort\n4.Bubble Sort\n6.Anagram Detection\n7.Prime Numbers" +
-                    "\n8.Prime Numbers That Are Anagram And Palindrome\n10.Find Your Number\n0.Exit");
+                    "\n8.Prime Numbers That Are Anagram And Palindrome\n10.Find Your Number\n12.Customizing Message Using Regex" +
+                    "\n0.Exit");
             System.out.print("\nEnter Your Choice : ");
             int userChoice = scnr.nextInt();
 
@@ -73,6 +74,9 @@ public class Main {
                     int high = (int) Math.pow(2, number);
                     int yourNumber = algorithmPrograms.findYourNumber(0, high);
                     System.out.printf("\nYour Guessed Number Is %d\n", yourNumber);
+                    break;
+                case Constants.CUSTOMIZING_MESSAGE_USING_REGEX:
+                    algorithmPrograms.customizingMessageUsingRegex();
                     break;
                 case Constants.EXIT :
                     flag = false;
