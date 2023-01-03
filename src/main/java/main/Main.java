@@ -91,11 +91,14 @@ public class Main {
         boolean flag = true;
         while (flag) {
             System.out.println("\nEnter Which Programs do you want to Run? ");
-            System.out.print("5.Palindrome Checker\n0.Exit");
+            System.out.print("1.Unordered List\n5.Palindrome Checker\n0.Exit");
             System.out.print("\nEnter Your Choice : ");
             int userChoice = scnr.nextInt();
 
             switch (userChoice) {
+                case Constants.UNORDERED_LIST:
+                    dataStructure.readWriteDataInMyLinkedList();
+                    break;
                 case Constants.PALINDROME_CHECKER:
                     dataStructure.palindromeChecker();
                     break;

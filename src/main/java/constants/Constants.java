@@ -16,5 +16,6 @@ public class Constants {
     public static final int EXIT = 0;
 
     // DataStructurePrograms
+    public static final int UNORDERED_LIST = 1;
     public static final int PALINDROME_CHECKER = 5;
 }
