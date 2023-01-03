@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AlgorithmPrograms {
-    private Scanner scnr = new Scanner(System.in);
-
+    static Scanner scnr = new Scanner(System.in);
     public void insertionSort(String[] args) {
         String temp = "";
         for(int i = 0; i < args.length; i++) {
@@ -148,7 +147,6 @@ public class AlgorithmPrograms {
         for (Integer integer : primeAnagramList) {
             System.out.print(integer + " ");
         }
-
     }
 
     public int findYourNumber(int low,int high){
