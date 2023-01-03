@@ -12,6 +12,7 @@ public class Constants {
     public static final int PRIME_NUMBERS = 7;
     public static final int PRIME_NUMBERS_THAT_ARE_ANAGRAM_AND_PALINDROME = 8;
     public static final int FIND_YOUR_NUMBER = 10;
+    public static final int CUSTOMIZING_MESSAGE_USING_REGEX = 12;
     public static final int EXIT = 0;
 
     // DataStructurePrograms
