@@ -3,8 +3,10 @@ package main;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class AlgorithmPrograms {
+    static Scanner scnr = new Scanner(System.in);
     public void insertionSort(String[] args) {
         String temp = "";
         for(int i = 0; i < args.length; i++) {
@@ -145,7 +147,20 @@ public class AlgorithmPrograms {
         for (Integer integer : primeAnagramList) {
             System.out.print(integer + " ");
         }
-
     }
 
+    public int findYourNumber(int low,int high){
+        int mid = low + ((high - low) / 2);
+        System.out.printf("\nIs Number Is Less Than %d? : ", mid);
+        System.out.print("\nType 1 for True\nType 2 for False\nType 3 If The Number Is Your Guessed Number");
+        System.out.print("Enter Your Choice : ");
+        int usrInput = scnr.nextInt();
+        if(usrInput == 1)
+            return findYourNumber(low, mid);
+        else if (usrInput == 2) {
+            return findYourNumber(mid, high);
+        } else {
+            return mid;
+        }
+    }
 }
